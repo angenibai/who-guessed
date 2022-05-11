@@ -61,7 +61,9 @@ const Play = (props: Props) => {
         </Grid>
       </VStack>
       <VStack className="targetSection" mb={10}>
-        <Text size="lg">Your person is:</Text>
+        <Heading as="h3" size="md">
+          Your person is:
+        </Heading>
         <CharacterCard
           image={targetCard.src}
           text={targetCard.name}
