@@ -1,5 +1,4 @@
-import { Heading, VStack } from "@chakra-ui/react";
-import React from "react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 
 interface Props {}
 
@@ -9,6 +8,7 @@ const Generate = (props: Props) => {
   return (
     <VStack className="Generate">
       <Heading>Select tags to include in your deck</Heading>
+      <Text>not implemented sry</Text>
     </VStack>
   );
 };

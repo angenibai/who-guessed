@@ -18,6 +18,7 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
 import Play from "./pages/Play";
+import { db } from "./utils/firebase";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -44,8 +45,8 @@ export const App = () => (
         >
           <Routes>
             <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Landing />} />
-            <Route path="/play/:deckId" element={<Play />} />
+            <Route path="/" element={<Landing db={db} />} />
+            <Route path="/play/:deckId" element={<Play db={db} />} />
           </Routes>
         </Center>
       </BrowserRouter>

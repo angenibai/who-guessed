@@ -1,5 +1,4 @@
-import { Heading, VStack } from "@chakra-ui/react";
-import React from "react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 
 interface Props {}
 
@@ -12,6 +11,7 @@ const Create = (props: Props) => {
       <Heading as="h3" size="md">
         Recommended 24 characters per deck
       </Heading>
+      <Text>not implemented sry</Text>
     </VStack>
   );
 };

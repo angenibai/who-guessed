@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import CharacterCard from "./CharacterCard";
 
@@ -6,11 +6,10 @@ interface Props {
   image: string;
   text: string;
   color: string;
-  key: string;
 }
 
 const FlippableCharacterCard = (props: Props) => {
-  const { image, text, color, key } = props;
+  const { image, text, color } = props;
 
   const [front, setFront] = useState(true);
 
@@ -19,7 +18,6 @@ const FlippableCharacterCard = (props: Props) => {
   return (
     <Flex
       className="FlippableCharacterCard"
-      key={key}
       width="100%"
       onClick={toggleCard}
       css={{
@@ -65,6 +63,7 @@ const FlippableCharacterCard = (props: Props) => {
           <Flex
             backgroundColor={color}
             width="100%"
+            maxW="200px"
             height="100%"
             borderRadius={10}
             alignItems="center"

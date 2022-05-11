@@ -6,15 +6,17 @@ import {
   Tabs,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import { Firestore } from "firebase/firestore";
 import Create from "./Create";
 import Generate from "./Generate";
 import Join from "./Join";
 
-interface Props {}
+interface Props {
+  db: Firestore;
+}
 
 const Landing = (props: Props) => {
-  const {} = props;
+  const { db } = props;
 
   return (
     <VStack className="Landing" width="100%">

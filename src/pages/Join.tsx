@@ -8,8 +8,9 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import React, { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { isAlphaNumeric } from "../utils/helpers";
 
 interface Props {}
 
@@ -24,13 +25,13 @@ const Join = (props: Props) => {
     setInputCode(e.target.value.toUpperCase());
 
   const checkError = () => {
-    if (inputCode !== "ABCD") {
+    if (isAlphaNumeric(inputCode) && inputCode.length === 4) {
+      setError(false);
+      return false;
+    } else {
       setError(true);
       return true;
     }
-
-    setError(false);
-    return false;
   };
 
   const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {

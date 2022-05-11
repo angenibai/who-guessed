@@ -6,7 +6,6 @@ import {
   Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
-import React from "react";
 
 interface Props {
   image: string;
