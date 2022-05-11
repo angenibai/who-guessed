@@ -1,7 +1,7 @@
 # Who Guessed ⁉️
 Guess Who but with customisable characters
 
-Play [here](https://who-guessed.web.app/){:target="_blank"}
+Play [here](https://who-guessed.web.app/)
 
 
 ## Running for development
