@@ -5,6 +5,7 @@ import {
   Heading,
   Input,
   Spacer,
+  useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
 import React, { ChangeEvent, MouseEvent, useState } from "react";
@@ -39,6 +40,8 @@ const Join = (props: Props) => {
     }
   };
 
+  const red = useColorModeValue("red.600", "red.400");
+
   return (
     <VStack className="Join">
       <Heading mb={6}>Play with an existing deck</Heading>
@@ -53,13 +56,13 @@ const Join = (props: Props) => {
           textAlign="center"
           fontSize={40}
           fontWeight={700}
-          color="orange.400"
-          _placeholder={{ opacity: 0.4, color: "orange.300" }}
-          borderColor="orange.300"
-          focusBorderColor="orange.400"
+          _placeholder={{ opacity: 0.4, color: "red.300" }}
+          borderColor="red.300"
+          focusBorderColor="red.400"
           borderWidth={2}
           paddingTop={2}
           paddingBottom={2}
+          colorScheme="red"
         />
         {isError && (
           <FormErrorMessage fontSize={16}>Invalid code</FormErrorMessage>
@@ -68,7 +71,7 @@ const Join = (props: Props) => {
       <Spacer />
       <Button
         variant="solid"
-        backgroundColor="orange.400"
+        backgroundColor={red}
         onClick={handleSubmit}
         size="md"
         color="whiteAlpha.900"

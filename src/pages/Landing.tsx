@@ -18,7 +18,7 @@ const Landing = (props: Props) => {
 
   return (
     <VStack className="Landing" width="100%">
-      <Tabs width="100%" align="center" size="lg" colorScheme="orange">
+      <Tabs width="100%" align="center" size="lg" colorScheme="red">
         <TabList mb={6}>
           <Tab>Join</Tab>
           <Tab>Generate</Tab>
