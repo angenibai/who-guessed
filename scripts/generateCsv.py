@@ -7,6 +7,7 @@ OUT_CSV = "./data/ai.csv"
 HEADER = ["name", "src", "link", "tags"]
 TAG="ai-generated"
 IMG_FILETYPES = set(["jpg", "jpeg", "png"])
+IMG_DOMAIN = "https://angeni.me/who-guessed-images-1/ai"
 
 def encode_img(imgpath):
     """
@@ -24,14 +25,13 @@ def write_to_csv():
         name, ext = fname.split(".")
         if ext not in IMG_FILETYPES:
             continue
-        filepath = f"{IMG_DIR}/{fname}"
-        img = encode_img(filepath)
+        img = f"{IMG_DOMAIN}/{fname}"
 
         new_row = {
-            "Name": name,
-            "Image": img,
-            "Link": "",
-            "Tags": TAG
+            "name": name,
+            "src": img,
+            "link": "",
+            "tags": TAG
         }
         toWrite.append(new_row)
     
