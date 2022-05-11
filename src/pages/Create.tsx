@@ -1,10 +1,6 @@
 import { Heading, Text, VStack } from "@chakra-ui/react";
 
-interface Props {}
-
-const Create = (props: Props) => {
-  const {} = props;
-
+const Create = () => {
   return (
     <VStack className="Create">
       <Heading>Upload your own characters</Heading>

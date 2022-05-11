@@ -1,7 +1,16 @@
-import { Box, Grid, Heading, Spinner, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  Heading,
+  Spacer,
+  Spinner,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { doc, Firestore, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CharacterCard from "../components/CharacterCard";
 import FlippableCharacterCard from "../components/FlippableCharacterCard";
 import { Card } from "../utils/interfaces";
@@ -111,6 +120,12 @@ const Play = (props: Props) => {
           <Text>
             There was an error loading your deck. Please try a different code
           </Text>
+          <Spacer />
+          <Link to="/">
+            <Button variant="solid" backgroundColor="red.400">
+              Go home
+            </Button>
+          </Link>
         </VStack>
       ) : (
         <>

@@ -12,11 +12,7 @@ import { ChangeEvent, MouseEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isAlphaNumeric } from "../utils/helpers";
 
-interface Props {}
-
-const Join = (props: Props) => {
-  const {} = props;
-
+const Join = () => {
   const navigate = useNavigate();
 
   const [inputCode, setInputCode] = useState("");
