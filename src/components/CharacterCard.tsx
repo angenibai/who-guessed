@@ -1,4 +1,11 @@
-import { Box, Image, VStack, Text, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  VStack,
+  Text,
+  Flex,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import React from "react";
 
 interface Props {
@@ -10,6 +17,8 @@ interface Props {
 const CharacterCard = (props: Props) => {
   const { image, text, color } = props;
 
+  const textBoxColor = useColorModeValue("gray.50", "blackAlpha.900");
+
   return (
     <Flex
       className="CharacterCard"
@@ -17,7 +26,6 @@ const CharacterCard = (props: Props) => {
       maxW="200px"
       height="fit-content"
       padding="10px 0"
-      borderWidth={2}
       borderRadius={10}
       backgroundColor={color}
       alignItems="center"
@@ -53,10 +61,14 @@ const CharacterCard = (props: Props) => {
         </Box>
         <Box
           className="cardTextBox"
-          backgroundColor="whiteAlpha.900"
+          backgroundColor={textBoxColor}
           width="100%"
+          borderRadius={4}
+          padding="4px 5px"
         >
-          <Text fontSize="80%">{text}</Text>
+          <Text fontSize="80%" fontWeight={600}>
+            {text}
+          </Text>
         </Box>
       </VStack>
     </Flex>

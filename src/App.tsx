@@ -26,7 +26,7 @@ export const App = () => (
         <Flex className="navbar" p={4}>
           <Box p={2}>
             <RouterLink to="/">
-              <Heading size="md">Who Guessed??</Heading>
+              <Heading size="md">Who Guessed ⁉️</Heading>
             </RouterLink>
           </Box>
           <Spacer />

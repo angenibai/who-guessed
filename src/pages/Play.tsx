@@ -28,7 +28,7 @@ const Play = (props: Props) => {
   const [cards, setCards] = useState<Card[]>(new Array(24).fill(defaultCard));
   const [deckName, setDeckName] = useState<string>("First Deck");
   const [targetCard, setTargetCard] = useState<Card>(defaultCard);
-  const [color, setColor] = useState("red.400");
+  const [color, setColor] = useState("orange.300");
 
   useEffect(() => {}, []);
 

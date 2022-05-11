@@ -67,7 +67,6 @@ const FlippableCharacterCard = (props: Props) => {
             width="100%"
             height="100%"
             borderRadius={10}
-            borderWidth={2}
             alignItems="center"
             justifyContent="center"
           >
