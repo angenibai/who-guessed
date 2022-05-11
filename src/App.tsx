@@ -1,38 +1,54 @@
-import * as React from "react"
+import * as React from "react";
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
   theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+  Center,
+  Flex,
+  Heading,
+  Spacer,
+} from "@chakra-ui/react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link as RouterLink,
+} from "react-router-dom";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import NotFound from "./pages/NotFound";
+import Landing from "./pages/Landing";
+import Play from "./pages/Play";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
+    <Box className="App">
+      <BrowserRouter>
+        <Flex className="navbar" p={4}>
+          <Box p={2}>
+            <RouterLink to="/">
+              <Heading size="md">Who Guessed??</Heading>
+            </RouterLink>
+          </Box>
+          <Spacer />
+          <Box>
+            <ColorModeSwitcher />
+          </Box>
+        </Flex>
+        <Center
+          className="appBody"
+          margin="auto"
+          maxW="1000px"
+          width="90%"
+          textAlign="center"
+          alignItems="stretch"
+        >
+          <Routes>
+            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/play/:deckId" element={<Play />} />
+          </Routes>
+        </Center>
+      </BrowserRouter>
     </Box>
   </ChakraProvider>
-)
+);
