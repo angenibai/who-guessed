@@ -16,6 +16,7 @@ import FlippableCharacterCard from "../components/FlippableCharacterCard";
 import { Card } from "../utils/interfaces";
 import {
   CARDS_COLLECTION,
+  COLOURS,
   DECKS_COLLECTION,
   DEFAULT_CARD,
 } from "../utils/constants";
@@ -31,8 +32,7 @@ const Play = (props: Props) => {
 
   const [cards, setCards] = useState<Card[]>([]);
   const [targetCard, setTargetCard] = useState<Card>(DEFAULT_CARD);
-  // const [color, setColor] = useState("orange.300");
-  const color = "orange.300";
+  const [color, setColor] = useState("gray.300");
   const [deckName, setDeckName] = useState("");
   const [isError, setIsError] = useState(false);
 
@@ -73,6 +73,11 @@ const Play = (props: Props) => {
   };
 
   useEffect(() => {
+    // set deck colour
+    const baseColor = sample(COLOURS);
+    setColor(`${baseColor}.300`);
+
+    // get deck data from database
     fetchDeckData(deckId).then((deckSnap) => {
       if (!deckSnap.exists()) {
         setIsError(true);

@@ -6,6 +6,7 @@ import {
   Flex,
   useColorModeValue,
 } from "@chakra-ui/react";
+import Placeholder from "../assets/placeholder120x160.jpg";
 
 interface Props {
   image: string;
@@ -56,6 +57,7 @@ const CharacterCard = (props: Props) => {
             position="absolute"
             top={0}
             left={0}
+            fallbackSrc={Placeholder}
           />
         </Box>
         <Box
