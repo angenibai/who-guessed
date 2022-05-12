@@ -75,6 +75,10 @@ const Join = () => {
       >
         JOIN
       </Button>
+      <Spacer />
+      <Heading marginBlock={6} as="h3" size="md" fontWeight={400}>
+        (try AIAI)
+      </Heading>
     </VStack>
   );
 };
