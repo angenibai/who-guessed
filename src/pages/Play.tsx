@@ -142,7 +142,20 @@ const Play = (props: Props) => {
               {deckId}
             </Heading>
           </VStack>
-          <VStack className="flipSection" mb={6} width="100%">
+          <VStack className="targetSection" mb={6}>
+            <Heading as="h3" size="md">
+              Your person is:
+            </Heading>
+            <CharacterCard
+              image={targetCard.src}
+              text={targetCard.name.toUpperCase()}
+              color={color}
+            />
+            <Text size="md">
+              Your opponents must guess the identity of your card.
+            </Text>
+          </VStack>
+          <VStack className="flipSection" mb={10} width="100%">
             <Text size="md">Click the cards below to flip</Text>
             <Grid
               className="cardsArea"
@@ -160,19 +173,7 @@ const Play = (props: Props) => {
               ))}
             </Grid>
           </VStack>
-          <VStack className="targetSection" mb={10}>
-            <Heading as="h3" size="md">
-              Your person is:
-            </Heading>
-            <CharacterCard
-              image={targetCard.src}
-              text={targetCard.name.toUpperCase()}
-              color={color}
-            />
-            <Text size="md">
-              Your opponents must guess the identity of your card.
-            </Text>
-          </VStack>
+          
         </>
       )}
     </Box>
