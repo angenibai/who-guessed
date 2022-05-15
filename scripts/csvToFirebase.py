@@ -1,16 +1,29 @@
 from firebase import db
 from firebase_admin import firestore
 import csv
+import os
 
 CARDS_COLLECTION = "cards"
 DECKS_COLLECTION = "decks"
 TAGS_COLLECTION = "tag-cards"
+
+def duplicate_exists(card_details):
+    """
+    Given card_details as an object
+    Returns whether the name already exists in the database
+    """
+    name_to_add = card_details["name"].upper()
+    matches_ref = db.collection(CARDS_COLLECTION).where("name", "==", name_to_add).get()
+    if len(matches_ref) > 0:
+        return True
+    return False
 
 def save_card(card_details):
     """
     Given card_details as an object
     Save its details to the relevant collections in the database
     """
+    card_details["name"] = card_details["name"].upper()
     print(f"Adding {card_details['name']}")
     # convert tags to list
     card_tags = card_details["tags"].split("+")
@@ -50,8 +63,15 @@ def csv_to_firebase(csv_path):
             if i == 0:
                 i += 1
                 continue
-            save_card(row)
+            if duplicate_exists(row):
+                print("duplicate exists")
+            else:
+                save_card(row)
             i += 1
 
 if __name__ == "__main__":
-    csv_to_firebase("./data/ai.csv")
+    path = input("Enter path to csv file: ")
+    if os.path.isfile(path):
+        csv_to_firebase(path)
+    else:
+        print("Invalid path to file")
